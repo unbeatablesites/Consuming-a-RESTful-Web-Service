@@ -30,6 +30,8 @@ public class ConsumingApiApplication {
             Quote quote = restTemplate.getForObject(
                     "https://gturnquist-quoters.cfapps.io/api/random", Quote.class);
             log.info(quote.toString());
+
+            System.out.println(quote);
         };
     }
 }
