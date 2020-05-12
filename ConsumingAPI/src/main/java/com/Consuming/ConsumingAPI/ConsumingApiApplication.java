@@ -19,17 +19,17 @@ public class ConsumingApiApplication {
 		SpringApplication.run(ConsumingApiApplication.class, args);
 	}
 
-@Bean
-public RestTemplate restTemplate(RestTemplateBuilder builder){
-	return builder.build();
-}
+    @Bean
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+        return builder.build();
+    }
 
-@Bean
-public CommandLineRunner run(RestTemplate restTemplate) throws Exception
-{
-	return  args -> {
-		Quote quote = restTemplate.getForObject("https://gturnquist-quoters.cfapps.io/api/random",Quote.class);
-		log.info(quote.toString());
-	};
-}
+    @Bean
+    public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
+        return args -> {
+            Quote quote = restTemplate.getForObject(
+                    "https://gturnquist-quoters.cfapps.io/api/random", Quote.class);
+            log.info(quote.toString());
+        };
+    }
 }

@@ -29,4 +29,6 @@ public class Quote {
     public void setValue(Value value) {
         this.value = value;
     }
+
+
 }
